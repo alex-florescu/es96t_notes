@@ -44,3 +44,6 @@ Average SIR approximation
 $$ S/I = SIR = \frac{(\sqrt{3N})^{n}}{i_0} $$
 $$ N = \text{cluster size}, n = path loss component $$
 $$ i_0 = \text{ number of adjacent cells (6 for hexagonal)} $$
+
+## Week 4
+> TODO
