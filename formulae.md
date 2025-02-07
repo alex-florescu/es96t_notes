@@ -87,4 +87,6 @@ $.
 $$ \text{Where } T_D = \text{Delay spread}, T_S = \text{Symbol duartion}, T_U = \text{Cyclic prefix duration} $$
 
 ## Week 5
-> TODO
+Water filling power allocation
+$$ \left( \frac{1}{x} - \frac{N_0}{{|h_i|}^2} \right)^{+} $$
+$$ \text{Where } N_0 = \text{Noise power, } \frac{1}{x} = \text{ Water level, } {|h_i|}^2 = \text{Subchannel gain. (All in W)} $$

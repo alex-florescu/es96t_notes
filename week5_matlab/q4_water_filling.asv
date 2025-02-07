@@ -1,0 +1,10 @@
+N0_dB = 3; % Noise pwr (dB)
+h1_dB = 6.02; % Subchannel 1 gain (dB)
+h2_db = 3; % Subchannel 2 gain (dB)
+
+water_lvl = 2.5;
+N0 = 10^(N0_dB/10);
+h1 = 10^(h1_dB/10);
+h2 = 10^(h2_db/10);
+
+P1 = 
