@@ -12,9 +12,16 @@ Given 12 Mbps bit rate
 QPSK 2 bits/symbol → 6 M symbols/s → 6 MHz Bandwidth \
 8-PSK 3 bits/symbol → 4 M symbols/s → 4 MHz Bandwidth
 
+Name | Bits per symbol
+| -- | -- |
+BPSK | 1 bits/symbol
+QPSK | 2 bits/symbol
+8-PSK | 3 bits/symbol
+64-QAM | 6 bits/symbol
+
 Shannon Rate
 
-$$ R = B \cdot \log_{2}{(1 + SNR)} $$
+$$ R = B \cdot \log_{2}{(1 + \text{SNR}_{linear})} $$
 
 $$ R = B \cdot \log_{2}{(1 + \frac{P}{N_0 B})} $$
 
@@ -29,7 +36,7 @@ $$ SIR_f = SIR_b + G $$
 
 $$ SIR_f = \text{after de-spreading}, SIR_b = \text{before de-spreading} $$
 
-$$ SIR = \frac{P_S \text{ (useful signal)}}{P_I \text{ (interference signal)}} $$
+$$ SIR_{(b)} = \frac{P_S \text{ (useful signal)}}{P_I \text{ (interference signal)}} $$
 
 Example N users in a cell
 
@@ -43,10 +50,18 @@ $$ P_T = \text{transmit power}, G_T = \text{transmit gain}, G_R = \text{receive 
 
 $$ \lambda \text{ (wavelength)} = \frac{c}{f} = \frac{3 \cdot 10^8}{f} , r = \text{distance} $$
 
+Another version
+$$ P_r (\text{dBm}) = P_t(\text{dBm}) - 21.98 + 20 \log_{10}(\lambda) - 20 \log_{10}(d)$$
+
+Noise power
+$$ P_N \text{ (linear)} = kTB $$
+$$k \text{ (Boltzmann Constant)} = 1.38 \cdot 10^{-23}$$
+$$ T = \text{Temperature (Kelvin)}, B = \text{ Bandwidth (Hz)} $$
+
 ## Week 3
 Average SIR approximation
 
-$$ S/I = SIR = \frac{(\sqrt{3N})^{n}}{i_0} $$
+$$ S/I = SIR \text{ (linear)} = \frac{(\sqrt{3N})^{n}}{i_0} $$
 
 $$ N = \text{cluster size}, n = \text{path loss component} $$
 
@@ -90,3 +105,11 @@ $$ \text{Where } T_D = \text{Delay spread}, T_S = \text{Symbol duartion}, T_U = 
 Water filling power allocation
 $$ \left( \frac{1}{x} - \frac{N_0}{{|h_i|}^2} \right)^{+} $$
 $$ \text{Where } N_0 = \text{Noise power, } \frac{1}{x} = \text{ Water level, } {|h_i|}^2 = \text{Subchannel gain. (All in W)} $$
+
+## Week 7
+
+$$ P_{\text{total}} = \frac{P_{RH}}{\text{efficiency}} \times \frac{T}{C} + P_{OH}$$
+$$ L \text{ (load)} = \frac{T}{C} $$
+Where
+$$ P_{\text{total}} = \text{Total power}, P_{RH} = \text{Radiohead power}, P_{OH} = \text{Overhead power}$$
+$$ T = \text{traffic demand}, C = \text{Capacity} $$
