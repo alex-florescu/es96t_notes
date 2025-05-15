@@ -95,6 +95,7 @@ $$ \text{Data Rate (Throughput N Channels)} = \frac{\text{bits per symbol} \cdot
 $$ \text{Overhead (N Channels)} = \frac{T_U}{\text{total duration}} $$
 
 Total transmission time of the OFDM symbol
+
 $$ \text{total duration} = T_S \cdot \text{(Num channels)} + T_U $$
 
 $$ \text{Efficiency} = \frac{\text{throughput}}{\text{ideal TP}} $$
