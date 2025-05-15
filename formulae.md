@@ -1,9 +1,14 @@
 # Formula Sheet - ES96T Advanced Wireless Networks
 
-$$ G_{dB} = 10 \cdot \log_{10}{G_{linear}} $$
+$$ G_{dB} = 10 \cdot \log_{10}{\left(  G_{W} \right)} $$
 
-$$ G_{linear} = 10^{({G_{dB}}{/10})} $$
+$$ G_{W} = 10^{({G_{dB}}{/10})} $$
 
+$$ G_{dBm} = 10 \cdot \log_{10}{\left(  G_{mW} \right)} $$
+
+$$ G_{dBm} = 10 \cdot \log_{10}{\left(  G_{W} \cdot 1000 \right)} $$ 
+
+---
 ### Week 1
 
 Bit rate example 
@@ -141,12 +146,51 @@ $$ f(x_1, \dots , x_n) = \frac{\left(  \sum^{n}_{i=1} x_i \right)^2 }{n\sum^{n}_
 
 
 Estimated Round Trip Time:
+
 $$ \text{Est}_{\text{RTT}} = (1-\alpha) \cdot \text{Est}_{\text{RTT}} + \alpha \cdot \text{Sample}_{\text{RTT}}  $$
 
 Deviation RTT:
+
 $$  \text{Dev}_{\text{RTT}} = (1-\beta) \cdot \text{Dev}_{\text{RTT}} + \beta \cdot |\text{Sample}_{\text{RTT}} - \text{Dev}_{\text{RTT}}| $$
 
 Timeout Interval
 
 $$ \text{TI} = \text{Dev}_{\text{RTT}} + 4 \cdot \text{Dev}_{\text{RTT}}  $$
 
+
+$$ \text{Loss Rate} = \frac{1}{\text{data sent with no interruptions} } $$
+
+$$ \text{Throughput} = \frac{\text{data per cycle}}{\text{time per cycle} } $$
+
+---
+### Week 9
+Vulnerable time
+$$ \text{Frame Rate} = \frac{\text{transmission rate}}{\text{frame size}} = \frac{1}{\text{frame duration}}$$
+
+$$ \text{Vulnerable time (Pure Aloha)} = 2 \cdot (\text{frame duration}) $$
+
+$$ \text{Vulnerable time (Slotted Aloha)} = 1 \cdot (\text{frame duration}) $$
+
+Slotted Aloha Throughput
+$$ S \text{ (Throughput)} = G \cdot e^{-G} $$
+
+$$ G \text{ (traffic demand)} = \frac{\text{number of frames}}{\text{transmission time}} $$
+
+$$ T \text{ (transmission time)} = \frac{\text{frame size}}{\text{rate}}  = \frac{L}{R}$$
+
+Probability of transmission
+
+$$ p = \text{Probability of a station to transmit} $$
+
+Probability a (any) station transmits successfully
+
+$$ \text{Efficiency (Pure Aloha)} = N \cdot p \cdot (1-p)^{2(N-1)} $$
+
+$$ \text{Efficiency (Slotted Aloha)} = N \cdot p \cdot (1-p)^{N-1} $$
+
+$$ N = \text{Number of stations} $$
+
+Probability that station X succeeds for the first time in slot M
+$$ P = \left( \left(1-p(1-p)^{N-1}\right)^{M-1} \right) \cdot \left( p(1-p)^{N-1} \right)  $$
+
+---
