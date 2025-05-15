@@ -53,19 +53,26 @@ $$ SIR = \frac{P}{(N-1)P} = \frac{1}{N-1} $$
 
 Free space communication
 
-$$ {P_r} \text{ (linear)} = P_T G_T G_r \left( \frac{\lambda}{4 \pi r} \right)^2 $$
+$$ {P_R} \text{ (linear)} = P_T G_T G_R \left( \frac{\lambda}{4 \pi r} \right)^2 $$
 
 $$ P_T = \text{transmit power}, G_T = \text{transmit gain}, G_R = \text{receive gain}, $$
 
-$$ \lambda \text{ (wavelength) (m)} = \frac{c}{f} = \frac{3 \cdot 10^8}{f} , r = \text{distance (m)} $$
+$$ \lambda \text{ (wavelength) (m)} = \frac{c}{f (\text{Hz})} = \frac{3 \cdot 10^8}{f} , r = \text{distance (m)} $$
+
+Same but in dB
+$$ P_R = P_T + G_T + G_R + 20 \log_{10}{\left( \frac{c}{f} \right)} - 21.98 - 20 \log_{10}(r) $$
 
 Another version
 $$ P_r (\text{dBm}) = P_t(\text{dBm}) - 21.98 + 20 \log_{10}(\lambda) - 20 \log_{10}(d)$$
 
 Noise power
 $$ P_N \text{ (linear)} = kTB $$
+
 $$k \text{ (Boltzmann Constant)} = 1.38 \cdot 10^{-23}$$
-$$ T = \text{Temperature (Kelvin)}, B = \text{ Bandwidth (Hz)} $$
+
+$$ T = \text{Temperature (Kelvin)} = t \left( \degree C \right) + 273.15 $$
+
+$$ B = \text{ Bandwidth (Hz)} $$
 
 ---
 ### Week 3
@@ -127,15 +134,20 @@ $$ \text{Where } T_D = \text{Delay spread}, T_S = \text{Symbol duartion}, T_U = 
 ### Week 5
 Water filling power allocation
 $$ \left( \frac{1}{x} - \frac{N_0}{{|h_i|}^2} \right)^{+} $$
+
 $$ \text{Where } N_0 = \text{Noise power, } \frac{1}{x} = \text{ Water level, } {|h_i|}^2 = \text{Subchannel gain. (All in W)} $$
 
 ---
 ### Week 7
 
 $$ P_{\text{total}} = \frac{P_{RH}}{\text{efficiency}} \times \frac{T}{C} + P_{OH}$$
+
 $$ L \text{ (load)} = \frac{T}{C} $$
+
 Where
+
 $$ P_{\text{total}} = \text{Total power}, P_{RH} = \text{Radiohead power}, P_{OH} = \text{Overhead power}$$
+
 $$ T = \text{traffic demand}, C = \text{Capacity} $$
 
 ---
@@ -157,10 +169,22 @@ Timeout Interval
 
 $$ \text{TI} = \text{Dev}_{\text{RTT}} + 4 \cdot \text{Dev}_{\text{RTT}}  $$
 
+Loss Rate and TP
 
 $$ \text{Loss Rate} = \frac{1}{\text{data sent with no interruptions} } $$
 
 $$ \text{Throughput} = \frac{\text{data per cycle}}{\text{time per cycle} } $$
+
+Estimated bandwidth of TCP connection
+
+$$ \text{BW} = \frac{\text{MSS}}{\text{RTT}} \cdot \frac{C}{\sqrt{p}} $$
+
+$$ C = \sqrt{3/2} = 1.2247 \text{  (Constant), p = \text{Loss probability}} $$
+
+Upper bound on TCP transfer rate
+
+$$ \text{BW}_{\text{max}} = \frac{\text{MSS}}{\text{RTT}} \cdot \frac{1}{\sqrt{p}} $$
+
 
 ---
 ### Week 9
@@ -172,11 +196,29 @@ $$ \text{Vulnerable time (Pure Aloha)} = 2 \cdot (\text{frame duration}) $$
 $$ \text{Vulnerable time (Slotted Aloha)} = 1 \cdot (\text{frame duration}) $$
 
 Slotted Aloha Throughput
-$$ S \text{ (Throughput)} = G \cdot e^{-G} $$
+$$ S \text{ (or TP Throughput)} = G \cdot e^{-G} = G \cdot p$$
+
+$$ \text{TP}_{\text{max}} \text{ when } G = 1 $$
+
+$$ p = \text{Probability of a successful transmission} $$
+
+
+Pure  Aloha Throughput
+$$ S \text{ (or TP Throughput)} = G \cdot e^{-2G}$$
+
+$$ \text{TP}_{\text{max}} \text{ when } G = 0.5 $$
+
+Traffic
+
+$$ G = \alpha \cdot T_{\text{frame}} $$
+
+$$ \alpha = \text{Frame arrival rate, } T_{\text{frame}} = \text{Frame duration} $$
+
 
 $$ G \text{ (traffic demand)} = \frac{\text{number of frames}}{\text{transmission time}} $$
 
 $$ T \text{ (transmission time)} = \frac{\text{frame size}}{\text{rate}}  = \frac{L}{R}$$
+
 
 Probability of transmission
 
