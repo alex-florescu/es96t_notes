@@ -1,4 +1,6 @@
 # Formula Sheet - ES96T Advanced Wireless Networks
+Author: Alex Florescu
+Date: 16/05/2025
 
 ## General Formulas
 
